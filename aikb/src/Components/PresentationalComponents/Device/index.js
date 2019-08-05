@@ -1,9 +1,10 @@
 import React from "react";
 // import { List, Header } from "semantic-ui-react";
+import "./index.css";
 
-const Device = ({ smarphones }) => {
+const Device = ({ devices }) => {
   return (
-    <ul>
+    <ul className="device-list">
       <li>Test1</li>
       <li>Test2</li>
     </ul>
