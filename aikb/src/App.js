@@ -1,35 +1,10 @@
-<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import DeviceList from "./Components/PresentationalComponents/DeviceList";
 import System from "./Components/PresentationalComponents/System";
-=======
-import React, { useEffect, useState } from 'react';
-import './App.css';
->>>>>>> stuff
-
 import { Smartphones } from "./Components/SmartphoneList"
 
 function App() {
-<<<<<<< HEAD
-  // const [devices, setDevices] = useState([]);
-
-  // useEffect(() => {
-  //   fetch("/devices").then(response =>
-  //     response.json().then(data => {
-  //       setDevices(data.devices);
-  //     })
-  //   );
-  // });
-
-  var devices = ["Test"];
-
-  return (
-    <div className="App">
-      <div className="warper">
-        <DeviceList />
-        <System />
-=======
   const [smartphones, setSmartphones] = useState([]);
 
   useEffect(() => {
@@ -47,7 +22,10 @@ function App() {
       </div>
       <div>
         This is a test
->>>>>>> stuff
+      </div>
+      <div className="warper">
+        <DeviceList />
+        <System />
       </div>
     </div>
   );
