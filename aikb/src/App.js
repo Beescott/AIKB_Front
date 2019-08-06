@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import DeviceList from "./Components/PresentationalComponents/DeviceList";
 import System from "./Components/PresentationalComponents/System";
+=======
+import React, { useEffect, useState } from 'react';
+import './App.css';
+>>>>>>> stuff
+
+import { Smartphones } from "./Components/SmartphoneList"
 
 function App() {
+<<<<<<< HEAD
   // const [devices, setDevices] = useState([]);
 
   // useEffect(() => {
@@ -21,6 +29,25 @@ function App() {
       <div className="warper">
         <DeviceList />
         <System />
+=======
+  const [smartphones, setSmartphones] = useState([]);
+
+  useEffect(() => {
+    fetch("/get_smartphones").then(response =>
+      response.json().then(data => {
+        setSmartphones(data.smartphones);
+      })
+    );
+  }, []);
+
+  return (
+    <div className="App">
+      <div style={{float: 'left'}}>
+        <Smartphones smartphones={smartphones}/>
+      </div>
+      <div>
+        This is a test
+>>>>>>> stuff
       </div>
     </div>
   );
