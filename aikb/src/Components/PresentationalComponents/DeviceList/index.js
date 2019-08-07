@@ -3,11 +3,18 @@ import InputField from "../InputField";
 import Device from "../Device";
 import "./index.css";
 
-const DeviceList = ({ devices }) => {
+const DeviceList = ({ devices, delEvent }) => {
   return (
     <div className="left-side">
-      <InputField />
-      <Device devices={devices} />
+      <h2>DeviceList</h2>
+      <ul>
+        {devices.map((device, index) => {
+          return <Device 
+                    device={device}
+                    delEvent={delEvent.bind(this, index)}
+                  />
+        })}
+      </ul>
     </div>
   );
 };

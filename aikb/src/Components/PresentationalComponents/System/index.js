@@ -1,10 +1,21 @@
 import React from "react";
 import "./index.css";
+import Device from "../Device"
 
-const System = () => {
+const System = ({ devices, delEvent }) => {
   return (
-    <div className="system">
-      <p>Hello World!</p>
+    <div className="left-side">
+      <h2>System</h2>
+      <ul>
+        {devices.map((device, index) => {
+          return (
+            <Device 
+              device={device} 
+              delEvent={delEvent.bind(this, index)}
+            />
+          )
+        })}
+      </ul>
     </div>
   );
 };

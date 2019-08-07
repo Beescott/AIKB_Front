@@ -2,21 +2,14 @@ import React from "react";
 // import { List, Header } from "semantic-ui-react";
 import "./index.css";
 
-const Device = ({ devices }) => {
+const Device = ({ device, delEvent }) => {
   return (
-    <ul className="device-list">
-      <li>Test1</li>
-      <li>Test2</li>
-    </ul>
-    // {smarphones.map(smartphone => {
-    //   return (
-    //     <li key={smartphone.name}>
-    //       <div>{smartphone.name}</div>
-    //     </li>
-    //   );
-    // })}
-    // // We should have the "</ul>" here.
-  );
-};
+    <li key={device.name} onClick={delEvent}>
+      <a>{device.name}</a>
+      <a> | </a>
+      <a>{device.connectivity} </a>
+    </li>
+  )
+}
 
 export default Device;
