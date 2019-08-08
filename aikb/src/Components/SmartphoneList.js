@@ -6,7 +6,7 @@ export const Smartphones = ({ smartphones }) => {
         <div id="SmartphoneList">
             <ul>
                 {smartphones.map(item =>(
-                    <li key={item}><a>{item}</a></li>
+                    <li key={item.name}><a>{item.name}</a></li>
                 ))}
             </ul>
         </div>
