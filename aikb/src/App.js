@@ -1,11 +1,8 @@
 import React, { Component, useEffect, useState } from "react";
 import "./App.css";
-import LeftPage from "./Components/PresentationalComponents/LeftPage";
-import RightPage from "./Components/PresentationalComponents/RightPage";
-import Smartphones from "./Components/PresentationalComponents/SmartphoneList";
 import DeviceList from "./Components/PresentationalComponents/DeviceList";
 import System from "./Components/PresentationalComponents/System";
-import Header from "./Components/PresentationalComponents/Header";
+import { Smartphones } from "./Components/SmartphoneList"
 
 class App extends Component {
     constructor(props) {
@@ -64,8 +61,10 @@ class App extends Component {
     deleteSmartphoneFromDeviceList = (index) => {
         this.addSmartphoneToSystem(this.state.mockSmartphone[index]);
 
-  DeleteSmartphoneFromDeviceList = index => {
-    this.addSmartphoneToSystem(this.state.mockSmartphone[index]);
+        const newMockSmartphone = Object.assign([], this.state.mockSmartphone);
+        newMockSmartphone.splice(index, 1);
+        this.setState({mockSmartphone: newMockSmartphone});
+    }
 
     render() {
         const { smartphones } = this.state;
