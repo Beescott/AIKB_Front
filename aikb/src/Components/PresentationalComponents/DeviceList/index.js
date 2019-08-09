@@ -1,6 +1,5 @@
-import React from "react";
-import InputField from "../InputField";
-import Device from "../Device";
+import React, { useEffect, useState } from "react";
+import Smartphones from "../SmartphoneList";
 import "./index.css";
 
 const DeviceList = ({ devices, delEvent }) => {

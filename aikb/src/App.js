@@ -1,8 +1,7 @@
 import React, { Component, useEffect, useState } from "react";
 import "./App.css";
-import DeviceList from "./Components/PresentationalComponents/DeviceList";
-import System from "./Components/PresentationalComponents/System";
-import { Smartphones } from "./Components/SmartphoneList"
+import LeftPage from "./Components/PresentationalComponents/LeftPage";
+import RightPage from "./Components/PresentationalComponents/RightPage";
 
 class App extends Component {
     constructor(props) {

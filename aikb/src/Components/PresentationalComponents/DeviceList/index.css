@@ -1,4 +1,8 @@
-.left-side {
-  display: inline-block;
-  vertical-align: top;
+.device-list {
+  max-height: 350px;
+  min-width: 60%;
+  max-width: 80%;
+  margin: 0 auto;
+  overflow-x: auto;
+  overflow-y: scroll;
 }
