@@ -6,8 +6,6 @@ const Device = ({ device, delEvent }) => {
   return (
     <li key={device.name} onClick={delEvent}>
       <a>{device.name}</a>
-      <a> | </a>
-      <a>{device.connectivity} </a>
     </li>
   )
 }

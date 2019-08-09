@@ -9,11 +9,8 @@ class App extends Component {
         this.state = {
             smartphones: null,
             mockSmartphone: [
-                { name: 'oneplus7', connectivity: 'Bluetooth' },
-                { name: 'iPhone X', connectivity: 'Bluetooth' }
             ],
             mockSystem: [
-                { name: 'Samsung Galaxy', connectivity: 'Wifi'}
             ]
         };
     }
@@ -21,33 +18,46 @@ class App extends Component {
     componentDidMount() {
         fetch("/get_smartphones").then(response =>
             response.json().then(data => {
-                this.setState({ smartphones: data.smartphones })
+                this.setState({ smartphones: data.smartphones });
+                this.setState({mockSmartphone: data.smartphones});
             })
         );
     }
 
     deleteSmartphoneFromSystem = (index) => {
-        this.addSmartphoneToDeviceList(this.state.mockSystem[index]);
-        
         // Remove smartphone from mock system
         const newMockSystem = Object.assign([], this.state.mockSystem);
         newMockSystem.splice(index, 1);
         this.setState({mockSystem: newMockSystem});
-    }
 
-    addSmartphoneToDeviceList = (smartphone) => {
-        const newMockSmartphone = Object.assign([], this.state.mockSmartphone);
-        newMockSmartphone.push(smartphone);
-        this.setState({mockSmartphone: newMockSmartphone});
+        this.updateDeviceList(newMockSystem);
     }
 
     addSmartphoneToSystem = (smartphone) => {
         const newMockSystem = Object.assign([], this.state.mockSystem);
         newMockSystem.push(smartphone);
+        this.updateDeviceList(newMockSystem);
+        
         this.setState({mockSystem: newMockSystem});
     }
 
-    DeleteSmartphoneFromDeviceList = (index) => {
+    updateDeviceList = (newMockSystem) => {
+        fetch(`/get_compatible_smartphones_with_system`, {
+            method:'post',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({"smartphones": newMockSystem})
+        }).then(response =>
+            response.json().then(data => {
+                var newDatas = newMockSystem.length > 0 ? data.smartphones : this.state.smartphones;
+                this.setState({mockSmartphone: newDatas});
+            })
+        );
+    }
+
+    deleteSmartphoneFromDeviceList = (index) => {
         this.addSmartphoneToSystem(this.state.mockSmartphone[index]);
 
         const newMockSmartphone = Object.assign([], this.state.mockSmartphone);
@@ -67,7 +77,7 @@ class App extends Component {
                 <div style={{ float: 'right' }}>
                     <DeviceList 
                         devices={this.state.mockSmartphone} 
-                        delEvent={this.DeleteSmartphoneFromDeviceList}
+                        delEvent={this.deleteSmartphoneFromDeviceList}
                     />
                     <System devices={this.state.mockSystem}
                         delEvent={this.deleteSmartphoneFromSystem}
