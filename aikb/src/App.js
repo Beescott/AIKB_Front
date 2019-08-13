@@ -67,19 +67,16 @@ class App extends Component {
   };
 
   render() {
-    const { smartphones } = this.state;
     return (
       <div className="App">
-        <div className="left-page">
-          {this.state &&
-            this.state.smartphones && <Smartphones smartphones={smartphones} />}
-        </div>
         <Header />
-        <div className="right-page">
+        <div className="left-page">
           <DeviceList
             devices={this.state.mockSmartphone}
             delEvent={this.deleteSmartphoneFromDeviceList}
           />
+        </div>
+        <div className="right-page">
           <System
             devices={this.state.mockSystem}
             delEvent={this.deleteSmartphoneFromSystem}
