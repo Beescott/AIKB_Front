@@ -3,7 +3,6 @@ import "./App.css";
 import DeviceList from "./Components/PresentationalComponents/DeviceList";
 import System from "./Components/PresentationalComponents/System";
 import Header from "./Components/PresentationalComponents/Header";
-import { Smartphones } from "./Components/SmartphoneList";
 
 class App extends Component {
   constructor(props) {
