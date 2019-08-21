@@ -22,9 +22,7 @@ class AddPhoneButton extends React.Component {
     return (
       <div>
         {this.renderRedirect()}
-        <button onClick={this.setRedirect}>
-          Ajouter un nouveau smartphone
-        </button>
+        <button onClick={this.setRedirect}>Add new device</button>
       </div>
     );
   }

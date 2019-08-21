@@ -5,7 +5,7 @@ import "./index.css";
 
 const DeviceList = ({ devices, delEvent }) => {
   return (
-    <div className="left-side">
+    <div className="device-list">
       <h2>DeviceList</h2>
       <ul>
         {devices.map((device, index) => {
