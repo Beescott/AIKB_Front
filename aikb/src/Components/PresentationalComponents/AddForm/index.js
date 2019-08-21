@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../Header";
+import ReturnButton from "../ReturnButton";
 import "./index.css";
 
 class AddForm extends React.Component {
@@ -144,6 +145,11 @@ class AddForm extends React.Component {
             <tr>
               <td colspan="2">
                 <input type="submit" value="Envoyer" />
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <ReturnButton />
               </td>
             </tr>
           </table>
